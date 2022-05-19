@@ -1,4 +1,4 @@
-import { publish as _publish } from 'libnpmpublish'
+import {publish as _publish} from 'libnpmpublish'
 import got from 'got'
 import ssri from 'ssri'
 import URL from "url"
@@ -39,7 +39,7 @@ function getIntegrity(dist: ManifestDist) {
 
 export async function fetchTarball(dist: ManifestDist, token?: string) {
   const res = got(dist.tarball, {
-    headers: token ? { authorization: `Bearer ${token}` } : {},
+    headers: token ? {authorization: `Bearer ${token}`} : {},
     hooks: {
       // workaround for https://github.com/sindresorhus/got/issues/1090
       beforeRedirect: [
@@ -113,7 +113,7 @@ export async function ensureRepositoryAccess(settings: MigrationSettings) {
 
   try {
     const targetResponse = await got(`${settings.target.registry}/-/ping?write=true`, {
-      headers: settings.target.token ? { authorization: `Bearer ${settings.target.token}` } : {}
+      headers: settings.target.token ? {authorization: `Bearer ${settings.target.token}`} : {}
     })
     logger.debug(`Target repository status (write access): ${targetResponse.statusCode}`)
   } catch (e) {

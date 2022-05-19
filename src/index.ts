@@ -99,7 +99,7 @@ function placePackageWithLatestDistDagInTheEnd(packageName: string, missing: str
     is not the version the `latest` dist tag points to.
     This code makes sure the last version in the array
     is the latest, so it's published last and GitHub will
-    then make it's latest dist tag point to it.
+    then make its latest dist tag point to it.
 
     e.g [1.5.6, 2.0.0] but latest is 1.5.6, will change to [2.0.0, 1.5.6]
   */

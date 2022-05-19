@@ -14,7 +14,7 @@ export function filterSourceVersions(packageName: string,
     filteredSourceVersions = allSourceVersions
   } else if (migrationMode === MigrationMode.ONLY_LATEST && sourcePackument != null) {
     filteredSourceVersions = [sourcePackument['dist-tags'].latest]
-  } else if (migrationMode === MigrationMode.LATEST_MAJORS && allSourceVersions.length != 0) {
+  } else if (migrationMode === MigrationMode.LATEST_MAJORS && allSourceVersions.length !== 0) {
     filteredSourceVersions = getLatestMajorVersions(allSourceVersions);
   }
   return filteredSourceVersions

@@ -131,7 +131,7 @@ inquirer.prompt(questions)
           }
           if (source.token === "") source.token = undefined
 
-          let toNotNull = to ?? {}
+          const toNotNull = to ?? {}
           const target = {
             registry: (toNotNull.registry ?? answers.targetUrl),
             token: (toNotNull.token ?? answers.targetToken)
@@ -152,8 +152,8 @@ inquirer.prompt(questions)
                             type: 'confirm',
                             message: `Please review migration settings:\n ${JSON.stringify(settings.hideTokens(), null, 4)}\n Start migration? `
                           })
-                  .then(answers => {
-                    if (answers.confirm === true) {
+                  .then(confirmStartMigration => {
+                    if (confirmStartMigration.confirm === true) {
                       syncPackages(settings).then(result => logger.info('Published: %i %s', result, dryRun ? '(Dry Run)' : ''))
                     }
                   })
